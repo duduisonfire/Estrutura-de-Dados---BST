@@ -101,7 +101,7 @@ export class BinaryTree<T> {
   }
 
   inverse(node = this.root) {
-    if (node === null) return;
+    if (!node) return;
 
     const temp = node.right;
     node.right = node.left;
