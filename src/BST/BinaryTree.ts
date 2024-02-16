@@ -110,7 +110,5 @@ export class BinaryTree<T> {
 
     if (node.left) this.inverse(node.left);
     if (node.right) this.inverse(node.right);
-
-    return node;
   }
 }
