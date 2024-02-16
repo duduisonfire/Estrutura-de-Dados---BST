@@ -101,13 +101,13 @@ export class BinaryTree<T> {
   }
 
   inverse(node = this.root) {
-    if (!node) return;
+    if (node) {
+      const temp = node.right;
+      node.right = node.left;
+      node.left = temp;
 
-    const temp = node.right;
-    node.right = node.left;
-    node.left = temp;
-
-    if (node.left) this.inverse(node.left);
-    if (node.right) this.inverse(node.right);
+      if (node.left) this.inverse(node.left);
+      if (node.right) this.inverse(node.right);
+    }
   }
 }
