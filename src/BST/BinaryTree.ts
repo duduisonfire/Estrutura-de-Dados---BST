@@ -57,6 +57,14 @@ export class BinaryTree<T> {
     if (this.root) this.inOrderTraverseNode(this.root, callback);
   }
 
+  inverse(node = this.root) {
+    if (node) {
+      [node.right, node.left] = [node.left, node.right];
+      if (node.left) this.inverse(node.left);
+      if (node.right) this.inverse(node.right);
+    }
+  }
+
   private inOrderTraverseNode(node: TreeNode<T>, callback: (value: T) => unknown) {
     if (node != null) {
       if (node.left) this.inOrderTraverseNode(node.left, callback);
@@ -98,13 +106,5 @@ export class BinaryTree<T> {
       currentNode = currentNode.left;
     }
     return currentNode;
-  }
-
-  inverse(node = this.root) {
-    if (node) {
-      [node.right, node.left] = [node.left, node.right];
-      if (node.left) this.inverse(node.left);
-      if (node.right) this.inverse(node.right);
-    }
   }
 }
