@@ -59,9 +59,9 @@ export class BinaryTree<T> {
 
   private inOrderTraverseNode(node: TreeNode<T>, callback: (value: T) => unknown) {
     if (node != null) {
-      if (node.left) this.inOrderTraverseNode(node.left, callback); // {3}
+      if (node.left) this.inOrderTraverseNode(node.left, callback);
       callback(node.value); // {4}
-      if (node.right) this.inOrderTraverseNode(node.right, callback); // {5}
+      if (node.right) this.inOrderTraverseNode(node.right, callback);
     }
   }
 
