@@ -104,16 +104,13 @@ export class BinaryTree<T> {
     if (node === null) return null;
     if (node.right === null && node.left === null) return node;
 
-    let actual: TreeNode<T> | null | undefined = node;
     const temp = node.right;
     node.right = node.left;
     node.left = temp;
 
-    if (node.left) actual = this.inverse(node.left);
-    if (node.right) actual = this.inverse(node.right);
+    if (node.left) this.inverse(node.left);
+    if (node.right) this.inverse(node.right);
 
-    actual = node;
-
-    return actual;
+    return node;
   }
 }
