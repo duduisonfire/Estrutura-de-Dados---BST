@@ -15,6 +15,7 @@ export class BinaryTree<T> {
       this.root = newNode;
     } else {
       let currentNode = this.root;
+
       while (true) {
         if (value < currentNode.value) {
           if (currentNode.left === null) {
@@ -37,6 +38,7 @@ export class BinaryTree<T> {
 
   search(value: T): TreeNode<T> | null {
     let currentNode = this.root;
+
     while (currentNode !== null) {
       if (value === currentNode.value) {
         return currentNode;
@@ -46,6 +48,7 @@ export class BinaryTree<T> {
         currentNode = currentNode.right;
       }
     }
+
     return null;
   }
 
@@ -102,9 +105,11 @@ export class BinaryTree<T> {
 
   private findMinNode(node: TreeNode<T>): TreeNode<T> {
     let currentNode = node;
+
     while (currentNode.left !== null) {
       currentNode = currentNode.left;
     }
+
     return currentNode;
   }
 }
